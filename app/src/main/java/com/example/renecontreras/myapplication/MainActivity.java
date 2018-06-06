@@ -31,21 +31,23 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cardNumberLenght = input.getText().toString().length(); // read input text
+                String phoneNumber = input.getText().toString(); // read input text
                 //card number validation (range 14 -16)
-                if((cardNumberLenght < 14 | cardNumberLenght > 16)){
-                    Toast toast = Toast.makeText(context, "Card numbers must be 14-16 digits",
-                            Toast.LENGTH_SHORT);
-                    toast.show();
-                    }else{
+                if((Utils.isValidPhoneNumber(phoneNumber))){
                     if(input.getText() != null){
                         String inputNumber = input.getText().toString();
+                        inputNumber = inputNumber.replaceAll("[\\D]", "");
                         //find repeated number in card number string
                         char repeated = Utils.magicNumber(inputNumber);
                         Log.i("./MainActivity","char repeated: "+repeated);
                         //call maskNumber method to display it on text view
                         tvCardNumberMasked.setText(Utils.maskNumber(inputNumber));
                     }
+                }else {
+                    Toast toast = Toast.makeText(context, "Phone numbers must be 10-13 digits",
+                            Toast.LENGTH_SHORT);
+                    toast.show();
+
                 }
             }
         });

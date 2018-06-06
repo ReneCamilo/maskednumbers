@@ -17,11 +17,11 @@
         android:id="@+id/tv_input_masked_card_number"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="Card number (14-16 digits): " />
+        android:text="Phone number (10-13 digits): " />
     <EditText
         android:layout_width="match_parent"
         android:layout_below="@+id/tv_input_masked_card_number"
-        android:inputType="number"
+        android:inputType="phone"
         android:layout_alignParentLeft="true"
         android:maxLength="16"
         android:layout_height="wrap_content"
@@ -37,6 +37,7 @@
         android:layout_height="wrap_content" />
     <TextView
         android:layout_width="wrap_content"
+        android:textSize="30sp"
         android:id="@+id/tv_masked_card_number"
         android:layout_below="@+id/tv_masked_card_number_header"
         android:layout_centerInParent="true"

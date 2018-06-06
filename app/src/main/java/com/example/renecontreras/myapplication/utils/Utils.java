@@ -1,6 +1,7 @@
 package com.example.renecontreras.myapplication.utils;
 
-import android.content.Context;
+import android.telephony.PhoneNumberUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Collections;
@@ -12,20 +13,25 @@ public  class Utils {
 
     /**
      *
-     * @param number is the number to mask and it must be among 14-16 digits
+     * @param number is the number to mask and it must be among 10-13 digits
      * @return masked number
      */
     public static String maskNumber(String number) {
-        int numberLenght = number.length();
 
-        if (numberLenght == 14) {
-            number = number.substring(0, 6) + "XXXX" + number.substring(10, 14);
+        int numberLenght = number.length();
+        Log.i("./MainActivity","lenght: "+numberLenght);
+
+        if (numberLenght == 10) {
+            number =  "***-***" + number.substring(6, 10);
         }
-        if (numberLenght == 15) {
-            number = number.substring(0, 6) + "XXXXX" + number.substring(11, 15);
+        if (numberLenght == 11) {
+            number =  "+*-***-***" + number.substring(7, 11);
         }
-        if (numberLenght == 16) {
-            number = number.substring(0, 6) + "XXXXXX" + number.substring(12, 16);
+        if (numberLenght == 12) {
+            number =  "+**-***-***" + number.substring(8, 12);
+        }
+        if (numberLenght == 13) {
+            number =  "+***-***-***" + number.substring(9, 13);
         }
         return number;
     }
@@ -47,7 +53,6 @@ public  class Utils {
                 map.put(number.charAt(i), 1);
             }
         }
-        number.
 
         // it will return max value in the Hashmap
         int maxValueInMap = (Collections.max(map.values()));
@@ -56,12 +61,20 @@ public  class Utils {
                 System.out.println("the max char is : " + entry.getKey() + "  and displayed  " + maxValueInMap + "  times");     // Print the key with max value
                 maxappearchar = entry.getKey();
             }
-            char []array = number.toCharArray();
-            Regex
+
         }
         return maxappearchar;
-        Regex
     }
 
+    public static boolean isValidPhoneNumber(String number){
+        number = number.replaceAll("[\\D]", "");
+        Log.i("./MainActivity","number: "+number);
+        if(number.length() >= 10 && number.length() <= 13 ){
+            return true;
+        }
+        return false;
+
+
+    }
 
 }

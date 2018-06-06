@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Card Number</string>
-    <string name="example_number">1234567890123666</string>
-    <string name="masked_card_number">MASKED CARD NUMBER</string>
-    <string name="masked_card_number_header">Your masked card number is</string>
+    <string name="example_number">(+521)3314703121</string>
+    <string name="masked_card_number">MASKED PHONE NUMBER</string>
+    <string name="masked_card_number_header">Your masked phone number is</string>
 
 </resources>
